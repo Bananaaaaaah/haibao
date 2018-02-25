@@ -1,0 +1,114 @@
+@charset "utf-8";
+a:hover {
+    color: #db3a45;
+}
+.nav-more:hover {
+	top:-40px;
+}
+.nav-more a:hover{
+    background-image: url("../images/nav2016-morebg.png");
+}
+.nav-more:hover ~ .nav-in{
+    top: -50px;
+	 transition-delay: 0s;
+}
+.login a:hover{
+    color: #888;
+}
+.slide-txt a:hover{
+    color: #fff;
+}
+.banner-slide:hover .slide1-nav,
+.trend-slide:hover .slide1-nav{
+    opacity: 1;
+    right: 0;
+    transition: 0.3s ;
+}
+
+.r-list-change:hover .mask{
+    height: 300px;
+    top: 0px;
+    opacity: 1;
+}
+.r-list-change:hover .mask-txt{
+   visibility: visible;
+    opacity: 1;
+}
+.star-more:hover{
+    background-color: #fff;
+    color: #000;
+
+}
+.product-more a:hover,
+.search-go a:hover{
+    top: -30px;
+}
+.star-search-go a:hover{
+    top: -38px;
+}
+.w-title a:hover{
+    color: #000;
+}
+.vedio-img:hover .big-play i{
+    background-position: -225px -157px;
+}
+.vedio-img:hover .big-play,
+.vedio-img:hover .sm-play{
+    background-color: #000;
+}
+.vedio-img:hover .sm-play i{
+    background-position: -127px -146px;
+}
+
+.trend-list-r:hover .bottom-show,
+.jwa-list:hover .bottom-show{
+    bottom: 0px;
+}
+
+.search-lable a:hover{
+    color: #888;
+}
+
+.slide2-list2-r:hover .mask{
+    width: 240px;
+    height: 240px; 
+    top: 0; 
+    left: 0;
+}
+
+.slide2-list2-r:hover .mask-txt{
+    visibility: visible;
+    opacity: 1;
+}
+.slide2:hover .slide2-nav span{
+    margin-right: -15px;
+    margin-left: -15px;
+    opacity: 1;
+}
+.best-look-pic li:hover  .redmask{
+    display: block;
+}
+.best-look-btns a:hover{
+    color: #000;
+}
+.prevbtn:hover i {
+    background-position: -731px -201px;
+}
+.refreshbtn:hover i {
+    background-position: -731px -299px;
+}
+.changebtn:hover i {
+    background-position: -731px -348px;
+}
+.interactive-slide:hover .nav-prev{
+    opacity: 1;
+    left: 0;
+}
+.interactive-slide:hover .nav-next  {
+    opacity: 1;
+    right:0;
+}
+.feedbacks:hover{
+    background-color: #DB3A45;
+    color: #fff;
+}
