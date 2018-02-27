@@ -1,0 +1,83 @@
+@charset "utf-8";
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,input,select,textarea,div,table,td,th,tr,dt,dd,dl{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+ul,ol{list-style:none;}
+strong,b{font-weight:normal;}
+em,i{font-style:normal;}
+table{border-spacing:0;border-collapse:collapse;}
+img{border:0;vertical-align:middle;}
+input,select{vertical-align:middle;font-size:100%;line-height:150%;font-family:arial,'\5FAE\8F6F\96C5\9ED1',sans-serif;-webkit-appearance:none;}
+a{text-decoration:none;color:#000;outline:none;hide-focus:expression(this.hideFocus=true);background-color:transparent;-webkit-tap-highlight-color:transparent;}
+body{min-width:1000px;font:14px/1.5 microsoft yahei, arial,"\5FAE\8F6F\96C5\9ED1",sans-serif;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;}
+@font-face {
+    font-family: 'condensed';
+    src: url('../font/unvr67w.eot'); /* IE9 Compat Modes */
+    src: url('../font/unvr67w.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/unvr67w.woff') format('woff'), /* Modern Browsers */
+    url('../font/unvr67w.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('../font/unvr67w.svg#HelveticaCdBd') format('svg'); /* Legacy iOS */
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+/*公共类*/
+a{
+    color: #000;
+    transition: color .2s ease
+}
+.w{
+    /*版心 提取 */
+    width: 1080px;
+    margin: 0 auto;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.col-888{
+    color: #888;
+}
+.h3-txt{
+    font-size: 18px;
+    line-height: 32px;
+    height: 65px;
+    overflow: hidden;
+}
+input::-webkit-input-placeholder{
+    color:#fff;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    color:#fff;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    color:#fff;
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+    color:#fff;
+}
+.no-m-r{
+    margin-right:0;
+}
+.mar-t15{
+    margin-top: 15px;
+}
+.mar-b20{
+    margin-bottom: 20px;
+}
+.no-m-l{
+    margin-left: 0;
+}
+.col-w{
+    color: #fff;
+}

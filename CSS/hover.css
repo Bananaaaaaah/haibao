@@ -18,7 +18,7 @@ a:hover {
 .slide-txt a:hover{
     color: #fff;
 }
-.banner-slide:hover .slide1-nav,
+#banner-slide:hover .slide1-nav,
 .trend-slide:hover .slide1-nav{
     opacity: 1;
     right: 0;
@@ -64,7 +64,12 @@ a:hover {
 .jwa-list:hover .bottom-show{
     bottom: 0px;
 }
-
+.r-list-slide-prev:hover{
+    background-position: -68px -71px;
+}
+.r-list-slide-next:hover{
+    background-position: -68px -71px;
+}
 .search-lable a:hover{
     color: #888;
 }
@@ -111,4 +116,10 @@ a:hover {
 .feedbacks:hover{
     background-color: #DB3A45;
     color: #fff;
+}
+.footer-con a:hover{
+    color: #000;
+}
+#right-fixed-nav li a:hover {
+    color: #db3a45;
 }
