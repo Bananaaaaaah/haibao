@@ -33,7 +33,6 @@ window.onload = function () {
                    clearInterval(timer)
                    //排他
                    index = this.index
-                   console.log(index)
                    setBtns();
                    //第一张 0 -750
                    //第二张 1 -1500
@@ -41,7 +40,7 @@ window.onload = function () {
 
                    // ul.style.left = PAGE_WIDTH *index + PAGE_WIDTH +"px";
                    move(ul,'left',PAGE_WIDTH *index + PAGE_WIDTH,30,function () {
-                       //   //  atuoSlide();
+                         atuoSlide();
                    })
                }
 
@@ -88,8 +87,6 @@ window.onload = function () {
            obj.timer = setInterval(function () {
                var oldValue = parseInt(getStyle(obj, attr))
                var newValue = oldValue + speed;
-               console.log(oldValue)
-               console.log(current)
                //向左移动newValue是否<target
                //向右移动newValue是否>target
                if (speed < 0 && newValue < target || speed > 0 && newValue > target) {
@@ -138,7 +135,7 @@ window.onload = function () {
                });
            },3000)
        }
-      // atuoSlide();
+       atuoSlide();
    }
 
 
@@ -166,6 +163,8 @@ window.onload = function () {
         open(navSearch,searchNav)
 
     }
+
+
     //精品计划tab切换
     var plan = document.getElementsByClassName("exclusive-plan");
     var sub_nav = document.getElementsByClassName("sub-nav");
