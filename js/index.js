@@ -5,8 +5,65 @@
 window.onload = function () {
 
 
+    //搜索input
+
+    var label =   document.getElementsByTagName("label")[0];
+    var searchInp = document.getElementById("search-inp");
+    //输入内容，模拟服务器获取内容，创建ul ，在其中显示
+    var searchArea = document.getElementsByClassName("search-area")[0];
+    //模拟服务器数据
+    var select_msg = ["a","aa","aaa","b","bb","bbb","ab","aab"];
+       searchInp.oninput = function () {
+           //键盘输入时控制label出现消失
+           if(this.value == ""){
+               label.className="show";
+           }else {
+               label.className="hide";
+           }
+           //创建字符串，添加对应的li和内容
+            var newArr = [];
+            //从数组中查询以input中输入内容为开头的信息添加到li中
+           //遍历老数组，判断哪一项为内容开头
+           for(var i=0;i<select_msg.length;i++){
+               var num = select_msg[i].indexOf(this.value);
+               if(num == 0){
+                   newArr.push("<li>"+select_msg[i]+"</li>")
+               }
+           }
+            var str = newArr.join("");
+           //创建一个ul之前删除前一个
+           if(searchArea.children[0]){
+               searchArea.removeChild(searchArea.children[0])
+           }
+           //如果内容为空直接返回不执行接下来的代码
+           if(this.value.length == 0){
+               return;
+           }
+           //当没有匹配结果时提醒
+           if(newArr.length == 0){
+               var ul = document.createElement("ul");
+               ul.innerHTML = "<li>没有匹配结果</li>";
+               searchArea.appendChild(ul);
+                return;
+           }
+           //创建ul将匹配结果放入其中，并添加ul到searchArea
+           var ul = document.createElement("ul");
+           ul.innerHTML = str;
+           searchArea.appendChild(ul);
+       }
+        searchInp.onblur = function () {
+           //失去焦点时label的控制
+            if(this.value == ""){
+                label.className="show";
+            }else {
+                label.className="hide";
+            }
+        }
+
+
+
+
     //slide1
-    var bannerSlide = document.getElementById("banner-slide");
     var slide1 = document.getElementsByClassName("slide1");
     for (i=0;i<slide1.length;i++){
 
@@ -61,6 +118,9 @@ window.onload = function () {
                index =li.length-3;
                ul.style.left =PAGE_WIDTH *(li.length-2) +"px"
            }
+           if(!slideBtns){
+               return false;
+           }
            for(var i=0;i<btnSpan.length;i++){
                btnSpan[i].className = "";
            }
@@ -105,7 +165,6 @@ window.onload = function () {
 
        }
        //点击前后切换
-
        next.onclick = function () {
            index++
            index%=(li.length-1)
@@ -140,9 +199,6 @@ window.onload = function () {
 
 
 
-
-
-
     //搜索框
     var navSearch = document.getElementsByClassName("nav-search")[0];
     var searchNav = document.getElementsByClassName("search-nav-wrap")[0];
@@ -163,6 +219,7 @@ window.onload = function () {
         open(navSearch,searchNav)
 
     }
+
 
 
     //精品计划tab切换
@@ -195,8 +252,6 @@ window.onload = function () {
 
     }
 
-
-
     //滚轮触发导航栏
     var header = document.getElementById("header");
     var rightNav = document.getElementById("right-fixed-nav");
@@ -209,16 +264,19 @@ window.onload = function () {
         var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
         if(scrollTop == 0){
             obj.style.top = '0';
+            obj.style.position = "absolute"
         }
         //scrollTop >= t时，说明鼠标向下滚动，
         else if(scrollTop >= t){
             obj.style.top = '-90px';
+            obj.style.position = "fixed"
             //当滚动到一定位置时右侧导航栏弹出
             if(scrollTop >= 800){
                 obj2.style.display ='block';
             }
         }else{   //scrollTop >= t时，说明鼠标向上滚动，
             obj.style.top = '0';
+            obj.style.position = "fixed"
             //当滚动到一定位置时右侧导航栏消失
             if(scrollTop < 800){
                 obj2.style.display ='none';
@@ -234,6 +292,7 @@ window.onload = function () {
    window.onscroll= function() {
         scroll(header,rightNav)
    }
+
 
   //回到顶部
     var goTop = document.getElementsByClassName("gotop")[0];

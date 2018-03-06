@@ -10,7 +10,7 @@ a:hover {
 }
 .nav-more:hover ~ .nav-in{
     top: -50px;
-	 transition-delay: 0s;
+    transition-delay: 0s;
 }
 .login a:hover{
     color: #888;

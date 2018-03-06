@@ -2,7 +2,7 @@
 
 /*头部start*/
 #header{
-    position: fixed;
+    position: absolute;
     top:0;
     z-index: 999;
     width: 100%;
@@ -72,9 +72,15 @@
     position: relative;
 }
 .search-input{
-    float: left;
     width: 682px;
     height: 76px;
+    color: #fff;
+}
+.search-input label {
+    position: absolute;
+    width: 100px;
+    font-size: 40px;
+    cursor: text;
 }
 .search-input input{
     width: 650px;
@@ -568,8 +574,12 @@
 .trend-nav-next{
     top: 105px;
 }
-.trend-slide-txt {
+.slide2 .trend-slide-txt {
+    position: relative;
+    left: -200px;
+    width: 800px;
     margin: 10px 0;
+    display: none;
 }
 .trend-slide-txt span{
     margin-left: 20px;
@@ -786,6 +796,7 @@
     height: 506px;
     overflow: hidden;
 }
+
 .brands-slide-btns{
     bottom: 125px;
 }
@@ -794,7 +805,7 @@
     top:0;
     width: 200px;
     height: 400px;
-    background-color: black;
+    background-color:rgba(0,0,0,.5);
 }
 .slide2-nav-prev{
    left: 0;
@@ -822,15 +833,18 @@
 }
 .slide2 ul{
     width: 2400px;
+    position: absolute;
+    left: -200px;
 }
 .slide2 li{
     float: left;
-    width: 800px;
-}
-.slide2-img{
     width: 400px;
     height: 400px;
-    margin: 0 auto;
+}
+.slide2-img{
+    display: inline;
+    width: 400px;
+    height: 400px;
 }
 .slide2-list2-r{
     position: relative;
@@ -860,6 +874,8 @@
 }
 .slide2-list2-r .com{
     margin-top: 10px;
+    left: 30px;
+    top: 150px;
     color: #fff;
     background: url("../images/uicon.png") no-repeat -327px -107px;
 }
@@ -1285,3 +1301,10 @@
 
 /*头部start*/
 /*头部end*/
+.search-area{
+    width:682px;
+    height:200px;
+    color: #fff;
+    font-size: 20px;
+    overflow: auto;
+}
