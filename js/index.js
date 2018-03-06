@@ -65,9 +65,16 @@ window.onload = function () {
 
     //slide1
     var slide1 = document.getElementsByClassName("slide1");
+       var slide2 = document.getElementsByClassName("slide2");
+
     for (i=0;i<slide1.length;i++){
 
-    slide(slide1[i]);
+        slide(slide1[i]);
+
+    }
+    for (i=0;i<slide2.length;i++){
+
+        slide(slide2[i]);
 
     }
     //点击下标切换
@@ -77,11 +84,11 @@ window.onload = function () {
    function slide(name) {
        var ul = name.getElementsByTagName("ul")[0];
        var li =ul.getElementsByTagName("li");
-
        var prev = name.getElementsByClassName("nav-prev")[0];
        var next = name.getElementsByClassName("nav-next")[0];
 
        var slideBtns =name.getElementsByClassName("slide-btns")[0];
+       var slide2Txt =name.getElementsByClassName("slide2-txt");
        if(slideBtns){
            var btnSpan = slideBtns.getElementsByTagName("span");
            for(var i=0;i<btnSpan.length;i++){
@@ -91,14 +98,17 @@ window.onload = function () {
                    //排他
                    index = this.index
                    setBtns();
-                   //第一张 0 -750
-                   //第二张 1 -1500
-                   //第三张 2 -2250
+                   if(name.className == "slide2"){
+                       move(ul,'left',PAGE_WIDTH*index-200,30,function () {
+                           autoSlide();
+                       });
+                   }else{
+                       // ul.style.left = PAGE_WIDTH *index + PAGE_WIDTH +"px";
+                       move(ul,'left',PAGE_WIDTH *index + PAGE_WIDTH,30,function () {
+                           autoSlide();
+                       })
+                   }
 
-                   // ul.style.left = PAGE_WIDTH *index + PAGE_WIDTH +"px";
-                   move(ul,'left',PAGE_WIDTH *index + PAGE_WIDTH,30,function () {
-                         atuoSlide();
-                   })
                }
 
            }
@@ -112,19 +122,35 @@ window.onload = function () {
            if(index >= li.length-2){
                //将当前索引设置为第一张的索引
                index = 0;
-               ul.style.left = PAGE_WIDTH+"px";
+               if(name.className == "slide2"){
+                   ul.style.left = "-200px";
+               }else{
+                   ul.style.left = PAGE_WIDTH+"px";
+               }
+
            }
            if(index <0){
                index =li.length-3;
-               ul.style.left =PAGE_WIDTH *(li.length-2) +"px"
+               if(name.className == "slide2"){
+                   ul.style.left = PAGE_WIDTH *(li.length-2)+200+"px";
+               }else{
+                   ul.style.left =PAGE_WIDTH *(li.length-2) +"px"
+               }
+
            }
            if(!slideBtns){
                return false;
            }
            for(var i=0;i<btnSpan.length;i++){
                btnSpan[i].className = "";
+               if(slide2Txt[i]){
+                   slide2Txt[i].style.display = "none";
+               }
            }
            btnSpan[index].className = "on";
+           if(slide2Txt[index]){
+               slide2Txt[index].style.display = "block";
+           }
        }
 
 
@@ -166,35 +192,62 @@ window.onload = function () {
        }
        //点击前后切换
        next.onclick = function () {
-           index++
+           clearInterval(timer);
+           index++;
            index%=(li.length-1)
-           move(ul,'left',PAGE_WIDTH*(index+1),50,function () {
-               setBtns();
-           });
+
+           if(name.className == "slide2"){
+               move(ul,'left',PAGE_WIDTH*index-200,30,function () {
+                   setBtns();
+                    autoSlide();
+               });
+           }else {
+               move(ul,'left',PAGE_WIDTH*(index+1),50,function () {
+                   setBtns();
+                   autoSlide();
+               });
+           }
 
        }
        prev.onclick = function () {
-           index--
+           clearInterval(timer);
+           index--;
            index %=(li.length-1);
-           move(ul,'left',PAGE_WIDTH*(index+1),50,function () {
-               setBtns();
-           });
+           if(name.className == "slide2"){
+               move(ul,'left',PAGE_WIDTH*index-200,30,function () {
+                   setBtns();
+                   autoSlide();
+               });
+           }else {
+               move(ul,'left',PAGE_WIDTH*(index+1),50,function () {
+                   setBtns();
+                   autoSlide();
+               });
+           }
+
 
        }
        var timer;
        //自动切换
-       function atuoSlide() {
+       function autoSlide() {
            timer =  setInterval(function () {
                index++;
                //判断index的值
                index %=(li.length-1);
                //执行move
-               move(ul,'left',PAGE_WIDTH*(index+1),30,function () {
-                   setBtns();
-               });
-           },3000)
+               if(name.className == "slide2"){
+                   move(ul,'left',PAGE_WIDTH*index-200,30,function () {
+                       setBtns();
+                   });
+               }else{
+                   move(ul,'left',PAGE_WIDTH*(index+1),30,function () {
+                       setBtns();
+                   });
+               }
+
+           },2000)
        }
-       atuoSlide();
+       autoSlide();
    }
 
 
@@ -307,6 +360,8 @@ window.onload = function () {
             }
         },0)
     }
+
+
 }
 
 

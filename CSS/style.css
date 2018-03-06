@@ -202,8 +202,7 @@
 .slide-btns .on{
     background-color: #DB3A45;
 }
-.nav-prev,
-.nav-next{
+.slide1-nav {
     position: absolute;
     right: -68px;
     width: 68px;
@@ -212,11 +211,12 @@
     opacity: 0;
     transition: 0.3s ;
 }
-.nav-prev{
+
+.slide1-nav-prev{
     top: 252px;
     background-position: 0 -115px;
 }
-.nav-next{
+.slide1-nav-next{
     top: 182px;
     background-position: 0 -45px;
 }
@@ -568,20 +568,19 @@
 .trend-slide-btns{
     bottom: 150px;
 }
-.trend-nav-prev{
-    top: 175px;
+
+.trend-slide-txt{
+    margin: 10px 0;
 }
-.trend-nav-next{
-    top: 105px;
-}
-.slide2 .trend-slide-txt {
+.slide2-txt{
     position: relative;
     left: -200px;
     width: 800px;
     margin: 10px 0;
     display: none;
 }
-.trend-slide-txt span{
+.trend-slide-txt span,
+.slide2-txt span{
     margin-left: 20px;
 }
 .com{
@@ -1119,7 +1118,13 @@
     overflow: hidden;
     margin-bottom: 35px;
 }
+.interactive-slide ul{
+    position: relative;
+    left: -300px;
+    width:900px ;
+}
 .interactive-slide li{
+    float: left;
     width: 300px;
     height: 300px;
 }
