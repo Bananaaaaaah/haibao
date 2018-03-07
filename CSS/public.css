@@ -54,6 +54,9 @@ a{
     height: 65px;
     overflow: hidden;
 }
+.fs-18{
+    font-size: 18px;
+}
 input::-webkit-input-placeholder{
     color:#fff;
 }
